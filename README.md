@@ -1,3 +1,4 @@
+# How to Update
 ## 1. Edit the Appropriate `.html` File
 - Locate the `.html` file that corresponds to the page you want to update.
 - Open it in a code editor (e.g., VS Code, Sublime Text).
