@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="flags">
+      <p>
+        <a href="pages/erin.html">🇹🇼</a>
+      </p>
+
+      <p>
+        <a href="pages/emma.html">🇨🇳</a>
+      </p>
+
+      <p>
+        <a href="pages/gian.html">🇰🇷</a>
+      </p>
+
+      <p>
+        <a href="pages/arin.html">🇹🇭</a>
+      </p>
+    </div>
+
+    <div class="artist_credits">
+      <h3>Landing Page Artists:</h3>
+      <p>Erin Hsu | Emma Deng | Gian Lee | Arin Pantja <br /></p>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <div id="lightboxInfo"></div>
+      <img id="lightboxImg" />
+    </div>
+
+    <script>
+      const titles = [
+        "欢迎！",
+        "歡迎！",
+        "환영!",
+        "welcome in ??? idk what language Arin will use he is so multi-cultural",
+        "Welcome!",
+      ];
+      let index = 0;
+
+      setInterval(() => {
+        document.title = titles[index];
+        index = (index + 1) % titles.length; // Loop through titles
+      }, 3000);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add fade overlay to the page
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          '<div id="fade-overlay"></div>'
+        );
+
+        // Ensure fade-in effect works
+        setTimeout(() => {
+          document.body.classList.add("fade-in");
+        }, 10);
+
+        // Handle link clicks for fade out effect
+        document.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            if (link.hostname === window.location.hostname) {
+              event.preventDefault(); // Prevent instant navigation
+              document.body.classList.add("fade-out"); // Start fade out effect
+
+              setTimeout(() => {
+                window.location = link.href; // Navigate after fade-out
+              }, 1000); // Match transition duration
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

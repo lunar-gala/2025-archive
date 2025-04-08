@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archive | Home</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="blur_container">
+      <div class="blur_8"></div>
+      <div class="blur_7"></div>
+      <div class="blur_6"></div>
+      <div class="blur_5"></div>
+      <div class="blur_4"></div>
+      <div class="blur_3"></div>
+      <div class="blur_2"></div>
+      <div class="blur_1"></div>
+      <div class="navbar">
+        <button id="scrollToTop">
+          <a href="../"><h1>ARCHIVE</h1></a>
+        </button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <!-- Hamburger Button -->
+
+        <div class="nav-links">
+          <p><a href="../pages/photo.html">PHOTO</a></p>
+          <p><a href="../pages/motion.html">MOTION</a></p>
+          <p><a href="../pages/web.html">WEB</a></p>
+          <p><a href="../pages/print.html">PRINT</a></p>
+          <p><a href="../pages/stage.html">STAGE</a></p>
+          <p><a href="../pages/sound.html">SOUND</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="description_box">
+      <p>
+        Considering the ephemeral nature of Lunar Gala, and the permanence of
+        the website, the 2025 web team decided to create an archive for this
+        year’s show. <br /><br />
+        From preliminary sketches, wireframes, to play-blasts, this page serves
+        as a record of experiments, iterations, and processes across the
+        creative teams. <br /><br />
+        <u
+          ><a
+            target="_blank"
+            href="https://github.com/suanna0/dev-lab/blob/main/elysium/How%20to%20Update%20the%20Archive%20Website.md"
+            >How to Update?</a
+          ><br /><br
+        /></u>
+      </p>
+    </div>
+
+    <div class="grid">
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/intermission_thumbnail.png?v=1742915512005"
+        alt="Intermission"
+        data-info="Intermission|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1qnpYSVPtxbru2dvTSJuSgJb1Db8NvQ6_/view' target='_blank'>🖇️</a></u>"
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/Final_Flood.gif?v=1742915506673"
+        alt="Final Flood"
+        data-info="Final Flood|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/preloader_xiao.gif?v=1742949107012"
+        alt="Website Preloader"
+        data-info="Website Preloader|Xiao Yuan|Web|TouchDesigner|2025|"
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/stage_sebastian.png?v=1743088538529"
+        alt="Stage Plan"
+        data-info="Stage Plan|Sebastian Zavalza|Stage|Vectorworks|2025| "
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/eve_katherine.jpg?v=1743088110153"
+        alt="Eve"
+        data-info="Eve|Katherine Wang|Sound|Soundtrack|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1h-lvljjHWNKXxjMEuvfcqPf-1f_JxnmZ/view?usp=sharing' >🖇️</a></u>"
+        onclick="openLightbox(this)"
+      />
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <div id="lightboxInfo"></div>
+      <img id="lightboxImg" />
+    </div>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("show");
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll(".reveal");
+
+        function checkReveal() {
+          const windowHeight = window.innerHeight;
+          reveals.forEach((reveal) => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            const isVisible = elementTop < windowHeight - 100;
+            if (isVisible) {
+              reveal.classList.add("reveal-visible");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", checkReveal);
+        checkReveal();
+
+        document
+          .getElementById("scrollToTop")
+          .addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+      });
+
+      function openLightbox(imgElement) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        lightbox.style.display = "flex";
+        lightboxImg.src = imgElement.src;
+
+        const infoData = imgElement.getAttribute("data-info").split("|");
+        lightboxInfo.innerHTML = `
+                <p>
+                    ${infoData[0]}<br />
+                    ${infoData[1]}<br />
+                    ${infoData[2]}<br />
+                    ${infoData[3]}<br />
+                    ${infoData[4]}<br />
+                    ${infoData[5]}<br />
+                </p>`;
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add fade overlay to the page
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          '<div id="fade-overlay"></div>'
+        );
+
+        // Ensure fade-in effect works
+        setTimeout(() => {
+          document.body.classList.add("fade-in");
+        }, 10);
+
+        // Handle link clicks for fade out effect
+        document.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            if (link.hostname === window.location.hostname) {
+              event.preventDefault(); // Prevent instant navigation
+              document.body.classList.add("fade-out"); // Start fade out effect
+
+              setTimeout(() => {
+                window.location = link.href; // Navigate after fade-out
+              }, 1000); // Match transition duration
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

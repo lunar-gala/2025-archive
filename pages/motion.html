@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archive | Motion</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="blur_container">
+      <div class="blur_8"></div>
+      <div class="blur_7"></div>
+      <div class="blur_6"></div>
+      <div class="blur_5"></div>
+      <div class="blur_4"></div>
+      <div class="blur_3"></div>
+      <div class="blur_2"></div>
+      <div class="blur_1"></div>
+      <div class="navbar">
+        <button id="scrollToTop">
+          <a href="../"><h1>ARCHIVE</h1></a>
+        </button>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <!-- Hamburger Button -->
+
+        <div class="nav-links">
+          <p><a href="../pages/photo.html">PHOTO</a></p>
+          <p><a href="../pages/motion.html">MOTION</a></p>
+          <p><a href="../pages/web.html">WEB</a></p>
+          <p><a href="../pages/print.html">PRINT</a></p>
+          <p><a href="../pages/stage.html">STAGE</a></p>
+          <p><a href="../pages/sound.html">SOUND</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/Final_Flood.gif?v=1742915506673"
+        alt="Final Flood"
+        data-info="Final Flood|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/self_love_deeptika.gif?v=1742833425869"
+        alt="Self Love"
+        data-info="Self Love|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
+        onclick="openLightbox(this)"
+      />
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/rock_and_water_deeptika.gif?v=1742832533758"
+        alt="Rock and Water"
+        data-info="Rock and Water|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
+        onclick="openLightbox(this)"
+      />
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/water_droplet_deeptika.gif?v=1742832732634"
+        alt="Water Droplet"
+        data-info="Water Droplet|Deeptika Mandha|Motion|Blender|2025|Custom Text 3|Custom Text 4"
+        onclick="openLightbox(this)"
+      />
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/recupera_se_deeptika.gif?v=1742857564357"
+        alt="Recupera Se"
+        data-info="Recupera Se|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
+        onclick="openLightbox(this)"
+      />
+
+      <img
+        loading="lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/countdown.png?v=1742916466035"
+        alt="Countdown"
+        data-info="Countdown|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1tGtUimmrWDlus01P85IxgNJiFSobVEuN/view' target='_blank'>🖇️</a></u>"
+        onclick="openLightbox(this)"
+      />
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <div id="lightboxInfo"></div>
+      <img id="lightboxImg" />
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll(".reveal");
+
+        function checkReveal() {
+          const windowHeight = window.innerHeight;
+          reveals.forEach((reveal) => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            const isVisible = elementTop < windowHeight - 100;
+            if (isVisible) {
+              reveal.classList.add("reveal-visible");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", checkReveal);
+        checkReveal();
+
+        document
+          .getElementById("scrollToTop")
+          .addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+      });
+
+      function openLightbox(imgElement) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        lightbox.style.display = "flex";
+        lightboxImg.src = imgElement.src;
+
+        const infoData = imgElement.getAttribute("data-info").split("|");
+        lightboxInfo.innerHTML = `
+                <p>
+                    ${infoData[0]}<br />
+                    ${infoData[1]}<br />
+                    ${infoData[2]}<br />
+                    ${infoData[3]}<br />
+                    ${infoData[4]}<br />
+                    ${infoData[5]}<br />
+                </p>`;
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        // Add fade overlay to the page
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          '<div id="fade-overlay"></div>'
+        );
+
+        // Ensure fade-in effect works
+        setTimeout(() => {
+          document.body.classList.add("fade-in");
+        }, 10);
+
+        // Handle link clicks for fade out effect
+        document.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (event) => {
+            if (link.hostname === window.location.hostname) {
+              event.preventDefault(); // Prevent instant navigation
+              document.body.classList.add("fade-out"); // Start fade out effect
+
+              setTimeout(() => {
+                window.location = link.href; // Navigate after fade-out
+              }, 1000); // Match transition duration
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

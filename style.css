@@ -1,0 +1,306 @@
+p {
+  font-family: sans-serif;
+  margin-top: 0px;
+  font-size: 12px;
+}
+
+/* Fade-in effect */
+body.fade-in {
+  opacity: 1;
+}
+
+/* Fade-out effect */
+body.fade-out {
+  opacity: 0;
+}
+
+h3 {
+  color: #b0b0b0; /* Light grey */
+  font-family: sans-serif;
+  font-weight: 400; /* Regular weight */
+  margin-top: 0px;
+  font-size: 10px;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.description_box {
+  padding: 0px 33vw 0px 0px;
+}
+
+.artist_credits {
+  text-align: center;
+  padding: 90vh 0px 0px 0px;
+}
+
+#scrollToTop {
+  display: flex;
+  align-items: flex-start; /* Aligns text to the top */
+  font-family: serif;
+  background: none; /* Removes background */
+  border: none; /* Removes border */
+  color: black;
+  cursor: pointer; /* Ensures it looks clickable */
+}
+
+.blur_container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1001;
+}
+
+.blur_8 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  backdrop-filter: blur(128px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(128px); /* Safari support */
+  z-index: 992;
+}
+
+.blur_7 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  backdrop-filter: blur(64px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(64px); /* Safari support */
+  z-index: 993;
+}
+
+.blur_6 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  backdrop-filter: blur(32px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(32px); /* Safari support */
+  z-index: 994;
+}
+
+.blur_5 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  backdrop-filter: blur(16px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(16px); /* Safari support */
+  z-index: 995;
+}
+
+.blur_4 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  backdrop-filter: blur(8px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  z-index: 996;
+}
+
+.blur_3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  backdrop-filter: blur(4px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(4px); /* Safari support */
+  z-index: 997;
+}
+
+.blur_2 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  backdrop-filter: blur(2px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+  z-index: 998;
+}
+
+.blur_1 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  backdrop-filter: blur(1px); /* Blurs content underneath */
+  -webkit-backdrop-filter: blur(1px); /* Safari support */
+  z-index: 999;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px 0px;
+  display: grid;
+  text-align: right;
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 1000;
+}
+
+.flags {
+  position: absolute;
+  top: 45vh;
+  width: 18%;
+  padding: 0px 40vw;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Class to add when the element is visible */
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  font-family: sans-serif;
+  margin-top: 0px;
+  text-align: left;
+  font-size: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.grid img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.grid img:hover {
+  transform: scale(1.02);
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  justify-content: left;
+  align-items: left;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  flex-direction: column;
+  z-index: 100001;
+}
+
+.lightbox img {
+  padding: 6vh 0px;
+  max-height: 60vh; /* Set max height to 80% of viewport height */
+  width: auto; /* Ensure width adjusts automatically */
+  object-fit: contain; /* Ensures the image scales properly */
+}
+
+.lightbox p {
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 18px;
+
+  justify-content: left;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hamburger Button */
+.hamburger {
+  text-align: right;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  display: none; /* Hide by default on larger screens */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media only screen and (max-width: 850px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-links p {
+    margin: 10px 0;
+    text-align: right;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show menu when active */
+  }
+
+  .lightbox img {
+    padding: 25vh 5px;
+    max-height: 25vh;
+  }
+
+  .artist_credits {
+    padding: 75vh 0px 0px 0px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .description_box {
+    padding: 0px 0px 0px 0px;
+  }
+  .hamburger {
+    display: grid; /* Show hamburger on mobile */
+  }
+
+  .flags {
+    width: 87%;
+    padding: 0px 5px;
+  }
+}
