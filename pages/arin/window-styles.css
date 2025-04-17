@@ -1,0 +1,42 @@
+/* LEFT AND RIGHT WINDOWS */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F3353C;
+    color: yellow;
+    font-size: 5em;
+}
+
+.windowCover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(32, 0, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: 0.3em;
+}
+
+.windowBody {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#storyText {
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+} 
+
+small {
+    font-size: 0.5em;
+}
