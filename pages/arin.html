@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>archive</title>
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="arin/styles.css" />
+    <script src="arin/script.js"></script>
   </head>
   <body>
     <div class="blur_container">
@@ -17,11 +19,21 @@
       <div class="blur_2"></div>
       <div class="blur_1"></div>
       <div class="navbar">
-        <h1>arin pantja</h1>
+        <!-- <h1>arin pantja</h1> -->
         <p>
           <a href="../pages/all.html">enter</a>
         </p>
+
       </div>
+    </div>
+
+    <div id="paperContainer">
+      <div id="centerPaper">
+        <p class="centerPaperText">
+        The act of crafting is seen as a way to honor ancestors, express hopes for the future, and bring families together through shared activities.<br><br>
+        手工艺被视为一种缅怀祖先、表达对未来希望，以及通过共同活动将家庭成员聚集在一起的方式。
+        </p>
+      </div> 
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -35,6 +47,8 @@
         setTimeout(() => {
           document.body.classList.add("fade-in");
         }, 10);
+
+        
 
         // Handle link clicks for fade out effect
         document.querySelectorAll("a").forEach((link) => {

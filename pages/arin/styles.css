@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(32, 0, 0);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: yellow;
+    background-color: black;
+}
+
+#paperContainer {
+    margin: 2% 25vw;
+    aspect-ratio: 1;
+    /* width: 25vw;
+    height: 25vw; */
+}
+#centerPaper {
+    height: 25vh;
+    width: 25vh;
+    background-color: #F3353C;
+    text-align: center;
+    padding: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transform-origin: center;
+    transition: transform 1s ease;
+    rotate: 135deg;
+}
+
+.centerPaperText {
+    transform-origin: center;
+    transition: transform 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1rem;
+    height: 100%;
+    rotate: 225deg;
+}
