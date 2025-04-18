@@ -5,25 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>archive</title>
     <link rel="stylesheet" href="../style.css" />
+    <style>
+      #intro-video {
+        width: 100%;
+        max-width: 100vw;
+      }
+    </style>
   </head>
   <body>
-    <div class="blur_container">
-      <div class="blur_8"></div>
-      <div class="blur_7"></div>
-      <div class="blur_6"></div>
-      <div class="blur_5"></div>
-      <div class="blur_4"></div>
-      <div class="blur_3"></div>
-      <div class="blur_2"></div>
-      <div class="blur_1"></div>
-      <div class="navbar">
-        <h1>erin hsu</h1>
-        <p>
-          <a href="../pages/all.html">enter</a>
-        </p>
-      </div>
-    </div>
+    <video id="intro-video" autoplay muted playsinline>
+      <source
+        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/erin.mp4?v=1744944408957"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <p>
+      <a href="../pages/all.html">ENTER/進入</a>
+    </p>
+
     <script>
+      const video = document.getElementById("intro-video");
+      const button = document.getElementById("next-button");
+
+      video.addEventListener("ended", () => {
+        button.style.display = "inline-block";
+      });
+
+      function goToNext() {
+        window.location.href = "../pages/all.html"; // change to your next page
+      }
       document.addEventListener("DOMContentLoaded", () => {
         // Fade in effect on page load
         document.body.classList.add("fade-in");
