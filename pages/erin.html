@@ -4,11 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>archive</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="/../style.css" />
     <style>
       #intro-video {
         width: 100%;
         max-width: 100vw;
+      }
+
+      .enter_button {
+        z-index: 1000;
+        position: absolute;
+        top: 58.5vw;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
       }
     </style>
   </head>
@@ -21,9 +35,13 @@
       Your browser does not support the video tag.
     </video>
 
-    <p>
-      <a href="../pages/all.html">ENTER/進入</a>
-    </p>
+    <div class = "enter_button">
+      <p>
+        <a href="../pages/all.html">
+            ENTER/進入
+        </a>
+      </p>
+    </div>
 
     <script>
       const video = document.getElementById("intro-video");
