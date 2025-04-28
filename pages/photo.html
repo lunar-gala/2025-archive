@@ -35,21 +35,23 @@
       </div>
     </div>
 
-    <div class="grid">
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/intermission_thumbnail.png?v=1742915512005"
-        alt="Intermission"
-        data-info="Intermission|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1qnpYSVPtxbru2dvTSJuSgJb1Db8NvQ6_/view' target='_blank'>🖇️</a></u>"
-        onclick="openLightbox(this)"
-      />
-    </div>
+    <div class = "content">
+      <div class="grid">
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/intermission_thumbnail.png?v=1742915512005"
+          alt="Intermission"
+          data-info="Intermission|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1qnpYSVPtxbru2dvTSJuSgJb1Db8NvQ6_/view' target='_blank'>🖇️</a></u>"
+          onclick="openLightbox(this)"
+        />
+      </div>
 
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <div id="lightboxInfo"></div>
-      <img id="lightboxImg" />
-    </div>
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div id="lightboxInfo"></div>
+        <img id="lightboxImg" />
+      </div>
 
+    </div>  
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const reveals = document.querySelectorAll(".reveal");

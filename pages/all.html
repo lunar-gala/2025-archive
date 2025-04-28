@@ -34,71 +34,72 @@
         </div>
       </div>
     </div>
-    <div class="description_box">
-      <p>
-        Considering the ephemeral nature of Lunar Gala, and the permanence of
-        the website, the 2025 web team decided to create an archive for this
-        year’s show. <br /><br />
-        From preliminary sketches, wireframes, to play-blasts, this page serves
-        as a record of experiments, iterations, and processes across the
-        creative teams. <br /><br />
-        <u
-          ><a
-            target="_blank"
-            href="https://github.com/lunar-gala/2025-archive/blob/main/README.md"
-            >How to Update?</a
-          ><br /><br
-        /></u>
-      </p>
+    <div class = "content">
+      <div class="description_box">
+        <p>
+          Considering the ephemeral nature of Lunar Gala, and the permanence of
+          the website, the 2025 web team decided to create an archive for this
+          year’s show. <br /><br />
+          From preliminary sketches, wireframes, to play-blasts, this page serves
+          as a record of experiments, iterations, and processes across the
+          creative teams. <br /><br />
+          <u
+            ><a
+              target="_blank"
+              href="https://github.com/lunar-gala/2025-archive/blob/main/README.md"
+              >How to Update?</a
+            ><br /><br
+          /></u>
+        </p>
+      </div>
+
+      <div class="grid">
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/intermission_thumbnail.png?v=1742915512005"
+          alt="Intermission"
+          data-info="Intermission|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1qnpYSVPtxbru2dvTSJuSgJb1Db8NvQ6_/view' target='_blank'>🖇️</a></u>"
+          onclick="openLightbox(this)"
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/Final_Flood.gif?v=1742915506673"
+          alt="Final Flood"
+          data-info="Final Flood|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
+          onclick="openLightbox(this)"
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/preloader_xiao.gif?v=1742949107012"
+          alt="Website Preloader"
+          data-info="Website Preloader|Xiao Yuan|Web|TouchDesigner|2025|"
+          onclick="openLightbox(this)"
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/stage_sebastian.png?v=1743088538529"
+          alt="Stage Plan"
+          data-info="Stage Plan|Sebastian Zavalza|Stage|Vectorworks|2025| "
+          onclick="openLightbox(this)"
+        />
+
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/eve_katherine.jpg?v=1743088110153"
+          alt="Eve"
+          data-info="Eve|Katherine Wang|Sound|Soundtrack|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1h-lvljjHWNKXxjMEuvfcqPf-1f_JxnmZ/view?usp=sharing' >🖇️</a></u>"
+          onclick="openLightbox(this)"
+        />
+      </div>
+
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div id="lightboxInfo"></div>
+        <img id="lightboxImg" />
+      </div>
     </div>
-
-    <div class="grid">
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/intermission_thumbnail.png?v=1742915512005"
-        alt="Intermission"
-        data-info="Intermission|Deeptika Mandha|Motion|Blender|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1qnpYSVPtxbru2dvTSJuSgJb1Db8NvQ6_/view' target='_blank'>🖇️</a></u>"
-        onclick="openLightbox(this)"
-      />
-
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/Final_Flood.gif?v=1742915506673"
-        alt="Final Flood"
-        data-info="Final Flood|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
-        onclick="openLightbox(this)"
-      />
-
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/preloader_xiao.gif?v=1742949107012"
-        alt="Website Preloader"
-        data-info="Website Preloader|Xiao Yuan|Web|TouchDesigner|2025|"
-        onclick="openLightbox(this)"
-      />
-
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/stage_sebastian.png?v=1743088538529"
-        alt="Stage Plan"
-        data-info="Stage Plan|Sebastian Zavalza|Stage|Vectorworks|2025| "
-        onclick="openLightbox(this)"
-      />
-
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/eve_katherine.jpg?v=1743088110153"
-        alt="Eve"
-        data-info="Eve|Katherine Wang|Sound|Soundtrack|2025|<u><a target = '_blank' href='https://drive.google.com/file/d/1h-lvljjHWNKXxjMEuvfcqPf-1f_JxnmZ/view?usp=sharing' >🖇️</a></u>"
-        onclick="openLightbox(this)"
-      />
-    </div>
-
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <div id="lightboxInfo"></div>
-      <img id="lightboxImg" />
-    </div>
-
     <script>
       function toggleMenu() {
         document.querySelector(".nav-links").classList.toggle("show");

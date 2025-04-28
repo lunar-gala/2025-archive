@@ -34,43 +34,43 @@
         </div>
       </div>
     </div>
+    <div class = "content">
+      <div class="grid">
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/self_love_deeptika.gif?v=1742833425869"
+          alt="Self Love"
+          data-info="Self Love|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
+          onclick="openLightbox(this)"
+        />
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/rock_and_water_deeptika.gif?v=1742832533758"
+          alt="Rock and Water"
+          data-info="Rock and Water|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
+          onclick="openLightbox(this)"
+        />
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/water_droplet_deeptika.gif?v=1742832732634"
+          alt="Water Droplet"
+          data-info="Water Droplet|Deeptika Mandha|Motion|Blender|2025|Custom Text 3|Custom Text 4"
+          onclick="openLightbox(this)"
+        />
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/recupera_se_deeptika.gif?v=1742857564357"
+          alt="Recupera Se"
+          data-info="Recupera Se|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
+          onclick="openLightbox(this)"
+        />
+      </div>
 
-    <div class="grid">
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/self_love_deeptika.gif?v=1742833425869"
-        alt="Self Love"
-        data-info="Self Love|Deeptika Mandha|Motion|Blender|2025|Custom Text 5|Custom Text 6"
-        onclick="openLightbox(this)"
-      />
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/rock_and_water_deeptika.gif?v=1742832533758"
-        alt="Rock and Water"
-        data-info="Rock and Water|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
-        onclick="openLightbox(this)"
-      />
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/water_droplet_deeptika.gif?v=1742832732634"
-        alt="Water Droplet"
-        data-info="Water Droplet|Deeptika Mandha|Motion|Blender|2025|Custom Text 3|Custom Text 4"
-        onclick="openLightbox(this)"
-      />
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/recupera_se_deeptika.gif?v=1742857564357"
-        alt="Recupera Se"
-        data-info="Recupera Se|Deeptika Mandha|Motion|Blender|2025|Custom Text 1|Custom Text 2"
-        onclick="openLightbox(this)"
-      />
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div id="lightboxInfo"></div>
+        <img id="lightboxImg" />
+      </div>
     </div>
-
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <div id="lightboxInfo"></div>
-      <img id="lightboxImg" />
-    </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const reveals = document.querySelectorAll(".reveal");

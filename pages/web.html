@@ -7,55 +7,57 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <div class="blur_container">
-      <div class="blur_8"></div>
-      <div class="blur_7"></div>
-      <div class="blur_6"></div>
-      <div class="blur_5"></div>
-      <div class="blur_4"></div>
-      <div class="blur_3"></div>
-      <div class="blur_2"></div>
-      <div class="blur_1"></div>
-      <div class="navbar">
-        <button id="scrollToTop">
-          <a href="../"><h1>ARCHIVE</h1></a>
-        </button>
+    <div class = "content">
+      <div class="blur_container">
+        <div class="blur_8"></div>
+        <div class="blur_7"></div>
+        <div class="blur_6"></div>
+        <div class="blur_5"></div>
+        <div class="blur_4"></div>
+        <div class="blur_3"></div>
+        <div class="blur_2"></div>
+        <div class="blur_1"></div>
+        <div class="navbar">
+          <button id="scrollToTop">
+            <a href="../"><h1>ARCHIVE</h1></a>
+          </button>
 
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <!-- Hamburger Button -->
+          <button class="hamburger" onclick="toggleMenu()">☰</button>
+          <!-- Hamburger Button -->
 
-        <div class="nav-links">
-          <p><a href="../pages/photo.html">PHOTO</a></p>
-          <p><a href="../pages/motion.html">MOTION</a></p>
-          <p><a href="../pages/web.html">WEB</a></p>
-          <p><a href="../pages/print.html">PRINT</a></p>
-          <p><a href="../pages/stage.html">STAGE</a></p>
-          <p><a href="../pages/sound.html">SOUND</a></p>
+          <div class="nav-links">
+            <p><a href="../pages/photo.html">PHOTO</a></p>
+            <p><a href="../pages/motion.html">MOTION</a></p>
+            <p><a href="../pages/web.html">WEB</a></p>
+            <p><a href="../pages/print.html">PRINT</a></p>
+            <p><a href="../pages/stage.html">STAGE</a></p>
+            <p><a href="../pages/sound.html">SOUND</a></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid">
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/preloader_xiao.gif?v=1742949107012"
-        alt="Website Preloader"
-        data-info="Website Preloader|Xiao Yuan|Web|TouchDesigner|2025|"
-        onclick="openLightbox(this)"
-      />
+      <div class="grid">
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/preloader_xiao.gif?v=1742949107012"
+          alt="Website Preloader"
+          data-info="Website Preloader|Xiao Yuan|Web|TouchDesigner|2025|"
+          onclick="openLightbox(this)"
+        />
 
-      <img
-        loading="lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/planets_suanna.gif?v=1742918117141"
-        alt="Web Backdrop"
-        data-info="Web Backdrop|Suanna Zhong|Web|p5.js|2025|<u><a target = '_blank' href='https://github.com/suanna0/dev-lab/blob/main/elysium/final_backdrop.js' target='_blank'>🖇️</a></u>"
-        onclick="openLightbox(this)"
-      />
-    </div>
+        <img
+          loading="lazy"
+          src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/planets_suanna.gif?v=1742918117141"
+          alt="Web Backdrop"
+          data-info="Web Backdrop|Suanna Zhong|Web|p5.js|2025|<u><a target = '_blank' href='https://github.com/suanna0/dev-lab/blob/main/elysium/final_backdrop.js' target='_blank'>🖇️</a></u>"
+          onclick="openLightbox(this)"
+        />
+      </div>
 
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <div id="lightboxInfo"></div>
-      <img id="lightboxImg" />
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div id="lightboxInfo"></div>
+        <img id="lightboxImg" />
+      </div>
     </div>
 
     <script>

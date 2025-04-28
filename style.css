@@ -145,7 +145,8 @@ a:active {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 10px 0px;
+  padding: 10px;
+  box-sizing: border-box;
   display: grid;
   text-align: right;
   grid-template-columns: repeat(2, 1fr);
@@ -186,7 +187,7 @@ h1 {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 10px;
 }
 
 body {
@@ -197,7 +198,10 @@ body {
   font-style: normal;
   letter-spacing: -0.01em;
   margin: 0;
-  padding: 20px;
+}
+
+.content {
+  padding: 10px;
 }
 
 .grid img {
