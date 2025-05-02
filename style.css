@@ -166,8 +166,8 @@ a:active {
 .flags {
   position: absolute;
   top: 45vh;
-  width: 18%;
-  padding: 0px 20vw;
+  left: 50%;
+  transform: translateX(-50%);
   display: grid;
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
