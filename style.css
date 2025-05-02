@@ -153,15 +153,26 @@ a:active {
   z-index: 1000;
 }
 
+.welcome {
+  position: absolute;
+  top: 40vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: inline-block;
+}
+
+
 .flags {
   position: absolute;
   top: 45vh;
   width: 18%;
-  padding: 0px 40vw;
+  padding: 0px 20vw;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
 }
+
 
 .reveal {
   opacity: 0;
