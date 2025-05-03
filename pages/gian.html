@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <link rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css" />
   <title>Welcome</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    h1 {
+      font-family: apple chancery, sans-serif;
+      font-weight: 300;
+      font-size: 2rem;
+    }
+
+    p {
+      font-family: apple chancery, sans-serif;
+      font-weight: 300;
     }
 
     .scroll-container {
@@ -20,6 +30,8 @@
       height: 100vh;
       width: 100vw;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      z-index: 1000;
     }
 
     .scroll-container::-webkit-scrollbar {
@@ -27,47 +39,156 @@
     }
 
     .scroll-item {
-    scroll-snap-align: start;
-    flex: 0 0 100vw;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-
+      scroll-snap-align: start;
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
     .scroll-item img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .enter-button {
+    .center-text-box {
       position: absolute;
-      bottom: 100px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       color: white;
       border: none;
       border-radius: 8px;
       text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .year {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      z-index: -1;
+    }
+
+    body.fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    body.fade-out {
+      animation: fadeOut 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <div class="year">
+    <h1>2023</h1>
+  </div>
+
   <div class="scroll-container">
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_1.png?v=1746207941566" alt="Part 1" />
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_1.png?v=1746238113008" alt="Part 1" />
+      <div class="center-text-box"><p>Use horizontal scroll to navigate</p></div>
     </div>
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_2.png?v=1746207945597" alt="Part 2" />
     </div>
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_3.png?v=1746207950864" alt="Part 3" />
-      <a class="enter-button" href="../pages/all.html"><h1 style="font-family: Helvetica, Arial, sans-serif; font-weight: 300;">Enter</h1></a>
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_2.png?v=1746239477352" alt="Part 2" />
+    </div>
+    <div class="scroll-item">
+    </div>
+    <div class="scroll-item">
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_3.png?v=1746238119217" alt="Part 3" />
+      <a class="center-text-box" style = "color: white" href="../pages/all.html"><p>Enter</p></a>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollContainer = document.querySelector(".scroll-container");
+      const yearDisplay = document.querySelector(".year h1");
+      const baseYear = 2023;
+
+      const colors = [
+        [43, 43, 57],         // Slide 1: Black
+        [214, 221, 146],     // Slide 2: Dark Blue
+        [146, 28, 83]      // Slide 3: Pinkish Red
+      ];
+
+      function interpolateColor(c1, c2, t) {
+        return c1.map((c, i) => Math.round(c + t * (c2[i] - c)));
+      }
+
+      function toRGBString(rgb) {
+        return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+      }
+
+      function updateVisuals() {
+        const scrollLeft = scrollContainer.scrollLeft ;
+        const containerWidth = scrollContainer.offsetWidth;
+        const index = scrollLeft / (containerWidth*2);
+
+        // Interpolate color
+        const i0 = Math.floor(index);
+        const i1 = Math.min(Math.ceil(index), colors.length - 1);
+        const t = index - i0;
+        const blended = interpolateColor(colors[i0], colors[i1], t);
+        document.body.style.backgroundColor = toRGBString(blended);
+
+        // Update year
+        yearDisplay.textContent = baseYear + Math.round(index);
+      }
+
+      // Debounced snapping scroll behavior
+      let isScrolling;
+      scrollContainer.addEventListener("scroll", () => {
+        updateVisuals();
+
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          const containerWidth = scrollContainer.offsetWidth;
+          const scrollLeft = scrollContainer.scrollLeft;
+          const snapIndex = Math.round(scrollLeft / containerWidth);
+          scrollContainer.scrollTo({
+            left: snapIndex * containerWidth,
+            behavior: "smooth"
+          });
+        }, 80); // Delay before snapping
+      });
+
+      // Initial update
+      updateVisuals();
+      document.body.classList.add("fade-in");
+
+      // Fade-out on internal link click
+      document.querySelectorAll("a").forEach(link => {
+        if (link.hostname === window.location.hostname) {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+              window.location = link.href;
+            }, 1000);
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

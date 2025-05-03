@@ -71,5 +71,36 @@
       <a class="enter-button" href="../pages/all.html"><h1>Enter</h1></a>
     </div>
   </div>
+
+  <script>
+    const video = document.getElementById("intro-video");
+    const button = document.getElementById("next-button");
+
+    video.addEventListener("ended", () => {
+      button.style.display = "inline-block";
+    });
+
+    function goToNext() {
+      window.location.href = "../pages/all.html"; // change to your next page
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      // Fade in effect on page load
+      document.body.classList.add("fade-in");
+
+      // Handle link clicks for fade out
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (link.hostname === window.location.hostname) {
+            event.preventDefault(); // Prevent instant navigation
+            document.body.classList.add("fade-out"); // Start fade out effect
+
+            setTimeout(() => {
+              window.location = link.href; // Navigate after fade-out
+            }, 500); // Match transition duration
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
