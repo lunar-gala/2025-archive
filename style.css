@@ -173,6 +173,10 @@ a:active {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.handwriting img {
+  width: 200px;
+}
+
 
 .reveal {
   opacity: 0;
@@ -323,8 +327,12 @@ body {
     display: grid; /* Show hamburger on mobile */
   }
 
-  .flags {
+  .handwriting {
     width: 87%;
     padding: 0px 5px;
+  }
+
+  .handwriting img {
+    width: 20vw;
   }
 }
