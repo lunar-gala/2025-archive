@@ -1,61 +1,63 @@
 const middleWindowContent = [
     {
         title: "Ang Bao / 红包",
-        image: "path/to/image1.jpg",
+        image: "/pages/arin/assets/pHongbao.png",
+        altImage: "/pages/arin/assets/hongbao.png",
         text: "This is the content for window 1",
         height: 400
     },
     {
         title: "XX / 红包",
-        image: "path/to/image2.jpg",
+        image: "/pages/arin/assets/pHongbao.png",
+        altImage: "/pages/arin/assets/lantern.png",
         text: "This is the content for window 2",
         height: 300
     },
     {
         title: "Window 3",
-        image: "path/to/image3.jpg",
+        image: "/pages/arin/assets/jianzhi.png",
+        altImage: "/pages/arin/assets/jianzhi2.png",
         text: "This is the content for window 3",
         height: 300
     },
     {
         title: "Window 4",
-        image: "path/to/image4.jpg",
+        image: "/pages/arin/assets/p2.png",
+        altImage: "/pages/arin/assets/p3.png",
         text: "This is the content for window 4",
         height: 300
     },
     {
         title: "Window 5",
-        image: "path/to/image5.jpg",
+        image: "/pages/arin/assets/pHongbao.png",
+        altImage: "/pages/arin/assets/hongbao.png",
         text: "This is the content for window 5",
         height: 300
     },
     {
         title: "Window 6",
-        image: "path/to/image6.jpg",
-        text: "This is the content for window 6",
-        height: 300
+        // image: "/pages/arin/assets/pHongbao.png",
+        altImage: "/pages/arin/assets/lantern.png",
+        text: "Red envelopes are small red packets filled with money, usually given to children, unmarried adults, and employees during Chinese New Year. The color red symbolizes luck, protection, and warding off evil spirits. The act of giving 红包 is not just about money—it's a blessing of good fortune, longevity, and prosperity. The number of bills and the amount often avoids unlucky numbers (like 4) and favors lucky ones (like 8).",
+        height: 100,
+        width: 400,
     },
     {
         title: "Window 7",
-        image: "path/to/image7.jpg",
+        // image: "/pages/arin/assets/pHongbao.png",
+        altImage: "/pages/arin/assets/jianzhi2.png",
         text: "This is the content for window 7",
         height: 300
     },
-    {
-        title: "Window 8",
-        image: "path/to/image8.jpg",
-        text: "This is the content for window 8",
-        height: 300
-    }
 ];
 
-function openWindowAtPosition(leftPos) {
-    console.log('opening window at position:', leftPos);
+function openWindowAtPosition(rightPos) {
+    console.log('opening window at position:', rightPos);
         
     const openedWindow = window.open(
         "",
         "_blank",
-        `width=200,height=100,left=${leftPos},top=0,menubar=no,toolbar=no,location=no,status=no`
+        `width=200,height=100,left=${rightPos},top=0,menubar=no,toolbar=no,location=no,status=no`
     );
 
     if (openedWindow) {
@@ -65,7 +67,7 @@ function openWindowAtPosition(leftPos) {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>新年快乐</title>
+                <title>春联</title>
                 <link rel="stylesheet" href="/pages/arin/window-styles.css">
             </head>
             <body>
@@ -73,7 +75,7 @@ function openWindowAtPosition(leftPos) {
                     <small>(DRAG DOWN TO REVEAL)</small>
                 </div>
                 <div class="windowBody">
-                    <p id="storyText">好<br>生<br>意<br>年<br>年</p>
+                    <p id="storyText">${this.screenX <= 100 ? '春风<br>得意<br>财源<br>广' : '旭日<br>临门<br>福运<br>长'}</p>
                 </div>
             </body>
             </html>
@@ -81,21 +83,20 @@ function openWindowAtPosition(leftPos) {
 
         openedWindow.addEventListener('resize', function() {
             
-            // LEFT WINDOWS -----------------------------------------------------------------------
+            // FIRST WINDOW -----------------------------------------------------------------------
             if (this.screenX <= 100 && // Check if it's the initial left window
                 this.innerHeight >= this.screen.height * 0.70 && 
                 !this.newWindowOpened) {
-                console.log('Opening right window!');
                 this.newWindowOpened = true;
                 if (this.opener && typeof this.opener.openWindowAtPosition === 'function') {
-                    const rightPos = this.screen.width - 300;
+                    const rightPos = this.screen.width + this.screen.width * 0.1;
                     setTimeout(() => {
                         this.opener.openWindowAtPosition(rightPos);
                     }, 1000);
                 }
             }
             
-            // RIGHT WINDOWS -----------------------------------------------------------------------
+            // SPAM WINDOWS -----------------------------------------------------------------------
             if (this.screenX > this.screen.width/2 && 
                 this.innerHeight >= this.screen.height * 0.70 && 
                 this.opener && 
@@ -104,23 +105,24 @@ function openWindowAtPosition(leftPos) {
                 console.log('Opening middle windows!');
                 this.middleWindowsOpened = true;
 
-                // Change background in styles.css
+                // Change main background
                 document.body.style.transition = 'background-color 3s ease-in-out';
                 document.body.style.backgroundColor = '#fff0f0';
 
-                // rotate text sepatately 
-                const centerPaperText = document.querySelector('.centerPaperText');
-                if (centerPaperText) {
-                    centerPaperText.style.fontSize = '8rem';
-                    centerPaperText.textContent = '福';
-                }
+                document.body.style.backgroundImage = "url('/assets/red-paper-texture.jpg')";
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundRepeat = 'no-repeat';
+                document.body.style.backgroundPosition = 'center';
 
-                
-                
-                // Open all 5 middle windows with proper spacing
+                const centerPaperText = document.querySelector('.centerPaperText');
+                centerPaperText.style.fontSize = '8rem';
+                centerPaperText.textContent = '福';
+                centerPaperText.style.transform = 'rotate(180deg)';
+                centerPaperText.style.display = 'block';
+            
                 const screenMiddle = this.screen.width/2;
                 const windowWidth = 300;
-                const spacing = 50; // Space between windows
+                const spacing = 50;
                 
                 const positions = [
                     screenMiddle - windowWidth*3 - spacing*3,  // Far left
@@ -133,12 +135,16 @@ function openWindowAtPosition(leftPos) {
                     screenMiddle + windowWidth*3 + spacing*3   // Far right
                 ];
                 
-                // Open each window at its calculated position with 1s delay between each
-                positions.forEach((pos, index) => {
-                    setTimeout(() => {
-                        this.opener.openMiddleWindow(index, pos);
-                    }, index * 200);
-                });
+                setTimeout(() => {
+                    positions.forEach((pos, index) => {
+                        setTimeout(() => {
+                            this.opener.openMiddleWindow(index, pos);
+                        }, Math.pow(1.5, index) * 50); // Exponential delay starting faster
+                    // }, index * 200);
+                    });
+                                }, 2000);
+                
+
             }
         });
 
@@ -167,17 +173,57 @@ function openMiddleWindow(contentIndex, leftPos) {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>${content.title}</title>
-                <link rel="stylesheet" href="/pages/arin/window-styles.css">
+                <link rel="stylesheet" href="/pages/arin/middle-window.css">
+
+                <style>
+                    .tooltip {
+                        position: fixed;
+                        background-color: rgba(0, 0, 0, 0.8);
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        pointer-events: none;
+                        z-index: 1000;
+                        display: none;
+                    }
+                    .imageContainer {
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                    }
+                </style>
             </head>
             <body>
+                <div class="tooltip">Click to cut</div>
                 <div class="middleWindow">
                     <div class="imageContainer">
-                        <img src="${content.image}" alt="${content.title}">
+                        <img src="${content.image}" alt="${content.title}" id="windowImage">
                     </div>
                     <div class="textContainer">
                         <p>${content.text}</p>
                     </div>
                 </div>
+                <script>
+                    const tooltip = document.querySelector('.tooltip');
+                    const windowImage = document.getElementById('windowImage');
+                    let isOriginalImage = true;
+
+                    document.addEventListener('mousemove', (e) => {
+                        tooltip.style.display = 'block';
+                        tooltip.style.left = (e.clientX + 10) + 'px';
+                        tooltip.style.top = (e.clientY + 10) + 'px';
+                    });
+
+                    document.addEventListener('mouseleave', () => {
+                        tooltip.style.display = 'none';
+                    });
+
+                    windowImage.addEventListener('click', () => {
+                        if (isOriginalImage) {
+                            windowImage.src = '${content.altImage}';
+                        }
+                    });
+                </script>
             </body>
             </html>
         `);
@@ -187,12 +233,10 @@ function openMiddleWindow(contentIndex, leftPos) {
 // Expose openMiddleWindow to child windows
 window.openMiddleWindow = openMiddleWindow;
 
-// Open initial window
-openWindowAtPosition(100);
-
-
-
-
+// Spawn initial window (banner) on the right with 2s delay
+setTimeout(() => {
+    openWindowAtPosition(window.innerWidth - window.innerWidth*0.1);
+}, 2000);
 
 // Simple spawn tracking using localStorage
 const spawnTracker = {

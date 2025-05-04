@@ -7,6 +7,11 @@ body {
     font-size: 5em;
 }
 
+@font-face {
+    font-family: 'chinese-script';
+    src: url('assets/bodang-xingkai.ttf') format('truetype');
+}
+
 .windowCover {
     position: fixed;
     top: 0;
@@ -35,6 +40,7 @@ z-index: 1;
 margin: 0;
 line-height: 1.5;
 text-align: center;
+font-family: 'chinese-script';
 } 
 
 small {
