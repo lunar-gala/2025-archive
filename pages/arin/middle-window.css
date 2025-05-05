@@ -7,7 +7,7 @@ body {
 }
 
 .middleWindow {
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .imageContainer {
@@ -17,6 +17,9 @@ body {
 .imageContainer img {
     max-width: 100%;
     height: auto;
+}
+
+.imageContainer img:not(.clicked) {
     cursor: url('/pages/arin/assets/scissor_icon.png') 16 16, pointer;
 }
 
@@ -35,13 +38,11 @@ svg {
     height: 0;
 }
 .middleWindow {
-    background: #fff0f0;
+    background: #f7d18f;
     transition: background 0.4s ease-in-out;
     position: relative;
 }
-.middleWindow:hover {
-    cursor: url('/pages/arin/assets/scissor_icon.png') 16 16, pointer;
-}
+
 .tooltip {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);

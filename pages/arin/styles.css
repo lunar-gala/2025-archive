@@ -29,6 +29,7 @@ body {
 }
 
 .centerPaperText {
+    font-family: 'jeju-myeongjo';
     display: flex;
     align-items: center;
     justify-content: center;

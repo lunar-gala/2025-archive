@@ -160,6 +160,7 @@ function openWindowAtPosition(rightPos) {
                             const percentOffsets = [
                                 [0.25, 0.25], // top left
                                 [0.4, 0.05],  // top middle
+                                [0.6, 0.05],  // top middle
                                 [0.75, 0.25], // top right
                                 [0.25, 0.75], // bottom left
                                 [0.6, 0.95],  // bottom middle
@@ -169,8 +170,8 @@ function openWindowAtPosition(rightPos) {
                                 setTimeout(() => {
                                     let left, top;
                                     if (index === n - 1) { //last one
-                                        left = centerX;
-                                        top = centerY;
+                                        left = window.innerWidth / 2 - 200;  // half of 400px width
+                                        top = window.innerHeight / 2 - 200;  // half of 400px height
                                     } else {
                                         const [px, py] = percentOffsets[index % percentOffsets.length];
                                         left = window.innerWidth * px - winW / 2;
@@ -198,7 +199,7 @@ function openMiddleWindow(contentIndex, leftPos, topPos) {
     const openedWindow = window.open(
         "",
         "_blank",
-        `width=300,height=${contentIndex % 2 === 0 ? 250 : 300},left=${leftPos},top=${topPos},menubar=no,toolbar=no,location=no,status=no`
+        `width=${contentIndex === middleWindowContent.length - 1 ? 400 : 300},height=${contentIndex === middleWindowContent.length - 1 ? 400 : (contentIndex % 2 === 0 ? 250 : 300)},left=${leftPos},top=${topPos},menubar=no,toolbar=no,location=no,status=no`
     );
 
     if (openedWindow) {
@@ -230,6 +231,7 @@ function openMiddleWindow(contentIndex, leftPos, topPos) {
                         windowImage.addEventListener('click', () => {
                             if (isOriginalImage) {
                                 windowImage.src = '${content.altImage}';
+                                windowImage.classList.add('clicked');
                             }
                         });
                     }
