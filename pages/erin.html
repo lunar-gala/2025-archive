@@ -6,27 +6,61 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="/style.css" />
     <style>
-     #intro-video {
+      #intro-video {
         width: 100vw;
         height: 100vh;
-        object-fit: cover; /* This makes sure the video covers the screen nicely */
+        object-fit: cover;
         margin: 0;
         padding: 0;
-        display: block; /* remove any extra spacing */
+        display: block;
       }
 
       .enter_button {
         z-index: 1000;
         position: absolute;
-        top: 80vh;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none; /* Prevent click until visible */
+      }
+
+      .enter_button.show {
+        opacity: 1;
+        pointer-events: auto;
       }
 
       body {
         padding: 0;
         margin: 0;
         overflow: hidden;
+      }
+
+      body.fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      body.fade-out {
+        animation: fadeOut 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
       }
     </style>
   </head>
@@ -39,39 +73,36 @@
       Your browser does not support the video tag.
     </video>
 
-    <div class = "enter_button">
-      <p>
-        <a href="../pages/all.html">
-            ENTER/進入
-        </a>
-      </p>
+    <div class="enter_button" id="enter-button">
+      <a href="../pages/all.html">
+        <img
+          src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/erin_enter_button.png?v=1746399322681"
+          alt="Enter"
+          style="width: 80vw; height: auto"
+        />
+      </a>
+      
     </div>
 
     <script>
       const video = document.getElementById("intro-video");
-      const button = document.getElementById("next-button");
+      const button = document.getElementById("enter-button");
 
       video.addEventListener("ended", () => {
-        button.style.display = "inline-block";
+        button.classList.add("show"); // Fade in the button
       });
 
-      function goToNext() {
-        window.location.href = "../pages/all.html"; // change to your next page
-      }
       document.addEventListener("DOMContentLoaded", () => {
-        // Fade in effect on page load
         document.body.classList.add("fade-in");
 
-        // Handle link clicks for fade out
         document.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", (event) => {
             if (link.hostname === window.location.hostname) {
-              event.preventDefault(); // Prevent instant navigation
-              document.body.classList.add("fade-out"); // Start fade out effect
-
+              event.preventDefault();
+              document.body.classList.add("fade-out");
               setTimeout(() => {
-                window.location = link.href; // Navigate after fade-out
-              }, 500); // Match transition duration
+                window.location = link.href;
+              }, 500);
             }
           });
         });

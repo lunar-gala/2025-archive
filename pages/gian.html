@@ -54,6 +54,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      transition: opacity 0.2s ease;
     }
 
     .center-text-box {
@@ -140,9 +141,11 @@
       }
 
       function updateVisuals() {
-        const scrollLeft = scrollContainer.scrollLeft ;
+        const scrollLeft = scrollContainer.scrollLeft;
         const containerWidth = scrollContainer.offsetWidth;
-        const index = scrollLeft / (containerWidth*2);
+        const center = scrollLeft + containerWidth / 2;
+
+        const index = scrollLeft / (containerWidth * 2);
 
         // Interpolate color
         const i0 = Math.floor(index);
@@ -153,7 +156,22 @@
 
         // Update year
         yearDisplay.textContent = baseYear + Math.round(index);
+
+        // Image fade logic
+        document.querySelectorAll(".scroll-item").forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.left + rect.width / 2;
+          const distanceToCenter = Math.abs(itemCenter - window.innerWidth / 2);
+          const maxDistance = window.innerWidth / 2;
+          const opacity = 1 - Math.min(distanceToCenter / maxDistance, 1);
+
+          const img = item.querySelector("img");
+          if (img) {
+            img.style.opacity = opacity;
+          }
+        });
       }
+
 
       // Debounced snapping scroll behavior
       let isScrolling;
