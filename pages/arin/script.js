@@ -1,54 +1,68 @@
 const middleWindowContent = [
     {
-        title: "Ang Bao / 红包",
+        title: "红包 / Red envelopes",
         image: "/pages/arin/assets/pHongbao.png",
         altImage: "/pages/arin/assets/hongbao.png",
-        text: "This is the content for window 1",
+        text: "The color red symbolizes luck, protection, and warding off evil spirits. The act of giving 红包 is not just about money—it's a blessing of good fortune, longevity, and prosperity. The number of bills and the amount often avoids unlucky numbers (like 4) and favors lucky ones (like 8).<br>红色象征着好运、保护和驱邪。赠送红包不仅是金钱上的馈赠，更是对好运、长寿和繁荣的祝福。红包的金额通常会避开不吉利的数字（如 4），偏爱吉利的数字（如 8）。",
+        hoverText: "",
         height: 400
     },
     {
-        title: "XX / 红包",
-        image: "/pages/arin/assets/pHongbao.png",
+        title: "灯笼 / Lanterns",
+        image: "/pages/arin/assets/p3.png",
         altImage: "/pages/arin/assets/lantern.png",
-        text: "This is the content for window 2",
+        text: "Lanterns are commonly used during Chinese New Year to light up the streets and homes, symbolizing reunion and hope for the future.<br><br>灯笼常在春节期间悬挂，用来点亮街道和家园，象征团圆和对未来的希望。",
+        hoverText: "Traditional Chinese New Year decorations bring luck",
         height: 300
     },
     {
-        title: "Window 3",
-        image: "/pages/arin/assets/jianzhi.png",
-        altImage: "/pages/arin/assets/jianzhi2.png",
-        text: "This is the content for window 3",
+        title: "灯笼 / Lanterns",
+        image: "/pages/arin/assets/p3.png",
+        altImage: "/pages/arin/assets/lantern2.png",
+        text: "Lanterns are commonly used during Chinese New Year to light up the streets and homes, symbolizing reunion and hope for the future.<br><br>灯笼常在春节期间悬挂，用来点亮街道和家园，象征团圆和对未来的希望。",
+        hoverText: "Traditional Chinese New Year decorations bring luck",
         height: 300
     },
     {
-        title: "Window 4",
+        title: "剪纸 / Paper cutting",
         image: "/pages/arin/assets/p2.png",
-        altImage: "/pages/arin/assets/p3.png",
-        text: "This is the content for window 4",
+        altImage: "/pages/arin/assets/jianzhi2.png",
+        text: "These are pasted on windows, doors, and walls. The most common symbol is the character 福 (fú, meaning blessing or fortune)—often pasted upside down to imply 福到了 (fortune has arrived, since 倒 and 到 are homophones).<br><br>剪纸通常贴在窗户、门和墙上。最常见的图案是字，经常倒贴，寓意福到了（因倒和到同音）。",
+        hoverText: "",
         height: 300
     },
     {
-        title: "Window 5",
+        title: "剪纸 / Paper cutting",
+        image: "/pages/arin/assets/p2.png",
+        altImage: "/pages/arin/assets/jianzhi.png",
+        text: "Symbolically, paper cuttings are a way to invite abundance, harmony, and joy into the home and ward off evil spirits through the use of red and traditional motifs.<br><br>剪纸象征着引入富足、和谐与喜悦，同时借助红色与传统图案驱邪避灾。",
+        hoverText: "",
+        height: 300
+    },
+    {
+        title: "红包 / Red envelopes",
         image: "/pages/arin/assets/pHongbao.png",
         altImage: "/pages/arin/assets/hongbao.png",
-        text: "This is the content for window 5",
+        text: "Red envelopes are small red packets filled with money, usually given to children, unmarried adults, and employees during Chinese New Year.<br><br>红包是装有钱的小红包，春节期间通常赠送给小孩、未婚成年人和员工。",
+        hoverText: "",
         height: 300
     },
     {
-        title: "Window 6",
-        // image: "/pages/arin/assets/pHongbao.png",
-        altImage: "/pages/arin/assets/lantern.png",
-        text: "Red envelopes are small red packets filled with money, usually given to children, unmarried adults, and employees during Chinese New Year. The color red symbolizes luck, protection, and warding off evil spirits. The act of giving 红包 is not just about money—it's a blessing of good fortune, longevity, and prosperity. The number of bills and the amount often avoids unlucky numbers (like 4) and favors lucky ones (like 8).",
-        height: 100,
-        width: 400,
-    },
-    {
-        title: "Window 7",
-        // image: "/pages/arin/assets/pHongbao.png",
-        altImage: "/pages/arin/assets/jianzhi2.png",
-        text: "This is the content for window 7",
+        title: "剪纸 / Paper cutting",
+        image: "/pages/arin/assets/p2.png",
+        altImage: "/pages/arin/assets/jianzhi3.png",
+        text: "Paper cutting art is often used on red paper to create designs that symbolize good fortune and prosperity<br><br>剪纸艺术常用红纸剪出象征吉祥与繁荣的图案。",
+        hoverText: "",
         height: 300
     },
+    {
+        title: "福 / Fu",
+        image: "/pages/arin/assets/fu.png",
+        altImage: "/pages/arin/assets/fu.png",
+        text: "The most common symbol is the character 福 (fú, meaning blessing or fortune)—often pasted upside down to imply 福到了 (fortune has arrived, since 倒 and 到 are homophones).<br><br>最常见的象征是福字，经常倒贴，寓意福到了（因倒和到发音相同）。",
+        hoverText: "",
+        height: 300
+    }    
 ];
 
 function openWindowAtPosition(rightPos) {
@@ -67,84 +81,107 @@ function openWindowAtPosition(rightPos) {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>春联</title>
+                <title> ${rightPos <= 100 ? '春联 / 上聯' : '春联 / 下聯'} </title>
                 <link rel="stylesheet" href="/pages/arin/window-styles.css">
             </head>
             <body>
                 <div class="windowCover">
-                    <small>(DRAG DOWN TO REVEAL)</small>
-                </div>
-                <div class="windowBody">
-                    <p id="storyText">${this.screenX <= 100 ? '春风<br>得意<br>财源<br>广' : '旭日<br>临门<br>福运<br>长'}</p>
+                    <small>(Drag down to reveal)</small>
+                    <p id="storyText">${rightPos <= 100 ? '春风<br>得意<br>财源<br>广' : '旭日<br>临门<br>福运<br>长'}</p>
                 </div>
             </body>
             </html>
         `);
 
         openedWindow.addEventListener('resize', function() {
-            
-            // FIRST WINDOW -----------------------------------------------------------------------
-            if (this.screenX <= 100 && // Check if it's the initial left window
+            // RIGHT WINDOW -----------------------------------------------------------------------
+            if (rightPos > 100 && // Check if it's the right window
                 this.innerHeight >= this.screen.height * 0.70 && 
                 !this.newWindowOpened) {
                 this.newWindowOpened = true;
                 if (this.opener && typeof this.opener.openWindowAtPosition === 'function') {
-                    const rightPos = this.screen.width + this.screen.width * 0.1;
+                    const leftPos = 0;
                     setTimeout(() => {
-                        this.opener.openWindowAtPosition(rightPos);
+                        this.opener.openWindowAtPosition(leftPos);
                     }, 1000);
                 }
             }
             
-            // SPAM WINDOWS -----------------------------------------------------------------------
-            if (this.screenX > this.screen.width/2 && 
-                this.innerHeight >= this.screen.height * 0.70 && 
-                this.opener && 
-                typeof this.opener.openMiddleWindow === 'function' &&
+            // LEFT WINDOW -----------------------------------------------------------------------
+            if (rightPos <= 100 && // Check if it's the left window
+                this.innerHeight >= this.screen.height * 0.80 && 
                 !this.middleWindowsOpened) {
                 console.log('Opening middle windows!');
                 this.middleWindowsOpened = true;
 
-                // Change main background
-                document.body.style.transition = 'background-color 3s ease-in-out';
-                document.body.style.backgroundColor = '#fff0f0';
-
-                document.body.style.backgroundImage = "url('/assets/red-paper-texture.jpg')";
-                document.body.style.backgroundSize = 'cover';
-                document.body.style.backgroundRepeat = 'no-repeat';
-                document.body.style.backgroundPosition = 'center';
-
-                const centerPaperText = document.querySelector('.centerPaperText');
-                centerPaperText.style.fontSize = '8rem';
-                centerPaperText.textContent = '福';
-                centerPaperText.style.transform = 'rotate(180deg)';
-                centerPaperText.style.display = 'block';
-            
-                const screenMiddle = this.screen.width/2;
-                const windowWidth = 300;
-                const spacing = 50;
+                const centerPaper = document.querySelector('.centerPaperText');
+                if (centerPaper) centerPaper.classList.add('hideOpacity');
                 
-                const positions = [
-                    screenMiddle - windowWidth*3 - spacing*3,  // Far left
-                    screenMiddle - windowWidth*2 - spacing*2,  // Left
-                    screenMiddle - windowWidth - spacing,      // Left center
-                    screenMiddle - spacing,                    // Center left
-                    screenMiddle + spacing,                    // Center right
-                    screenMiddle + windowWidth + spacing,      // Right center
-                    screenMiddle + windowWidth*2 + spacing*2,  // Right
-                    screenMiddle + windowWidth*3 + spacing*3   // Far right
-                ];
-                
-                setTimeout(() => {
-                    positions.forEach((pos, index) => {
+                const doorsImg = document.querySelector('.doorsImg');
+                if (doorsImg) {
+                    // Change to door2.png
+                    doorsImg.src = '/pages/arin/assets/door2.png';
+                    
+                    // After 1.5 seconds, hide the door and start the transition
+                    setTimeout(() => {
+                        doorsImg.classList.add('hide');
+                        
+                        // CHANGE BACKGROUND -----------------------------------------------------------------------
+                        document.body.style.transition = 'background-color 3s cubic-bezier(0.25, 0.1, 0.25, 1.0)';
+                        document.body.style.backgroundColor = '#fff0f0';
+
+                        // Create a background container for fade effect
+                        const bgContainer = document.createElement('div');
+                        bgContainer.style.position = 'fixed';
+                        bgContainer.style.top = '0';
+                        bgContainer.style.left = '0';
+                        bgContainer.style.width = '100%';
+                        bgContainer.style.height = '100%';
+                        bgContainer.style.backgroundImage = "url('/pages/arin/assets/background_paper.png')";
+                        bgContainer.style.backgroundSize = 'auto';
+                        bgContainer.style.backgroundRepeat = 'repeat';
+                        bgContainer.style.backgroundPosition = 'center';
+                        bgContainer.style.opacity = '0';
+                        bgContainer.style.transition = 'opacity 3s ease-in-out';
+                        document.body.appendChild(bgContainer);
+
+                        // Start fade in after a short delay
                         setTimeout(() => {
-                            this.opener.openMiddleWindow(index, pos);
-                        }, Math.pow(1.5, index) * 50); // Exponential delay starting faster
-                    // }, index * 200);
-                    });
-                                }, 2000);
-                
-
+                            bgContainer.style.opacity = '1';
+                        }, 500);
+                        
+                        setTimeout(() => {
+                            const n = middleWindowContent.length;
+                            const winW = 300;
+                            const winH = 250;
+                            const centerX = window.innerWidth / 2 - winW / 2;
+                            const centerY = window.innerHeight / 2 - winH / 2;
+                            // left, top
+                            const percentOffsets = [
+                                [0.25, 0.25], // top left
+                                [0.4, 0.05],  // top middle
+                                [0.75, 0.25], // top right
+                                [0.25, 0.75], // bottom left
+                                [0.6, 0.95],  // bottom middle
+                                [0.75, 0.75], // bottom right
+                            ];
+                            for (let index = 0; index < n; index++) {
+                                setTimeout(() => {
+                                    let left, top;
+                                    if (index === n - 1) { //last one
+                                        left = centerX;
+                                        top = centerY;
+                                    } else {
+                                        const [px, py] = percentOffsets[index % percentOffsets.length];
+                                        left = window.innerWidth * px - winW / 2;
+                                        top = window.innerHeight * py - winH / 2;
+                                    }
+                                    this.opener.openMiddleWindow(index, left, top);
+                                }, Math.pow(1.5, index) * 50);
+                            }
+                        }, 2000);
+                    }, 1500);
+                }
             }
         });
 
@@ -154,14 +191,14 @@ function openWindowAtPosition(rightPos) {
     }
 }
 
-function openMiddleWindow(contentIndex, leftPos) {
+function openMiddleWindow(contentIndex, leftPos, topPos) {
     const content = middleWindowContent[contentIndex];
     if (!content) return;
 
     const openedWindow = window.open(
         "",
         "_blank",
-        `width=300,height=${contentIndex % 2 === 0 ? 300 : 400},left=${leftPos},top=${Math.floor(Math.random() * (window.innerHeight * 0.9 - 100) + 100)},menubar=no,toolbar=no,location=no,status=no`
+        `width=300,height=${contentIndex % 2 === 0 ? 250 : 300},left=${leftPos},top=${topPos},menubar=no,toolbar=no,location=no,status=no`
     );
 
     if (openedWindow) {
@@ -174,27 +211,9 @@ function openMiddleWindow(contentIndex, leftPos) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>${content.title}</title>
                 <link rel="stylesheet" href="/pages/arin/middle-window.css">
-
-                <style>
-                    .tooltip {
-                        position: fixed;
-                        background-color: rgba(0, 0, 0, 0.8);
-                        color: white;
-                        padding: 5px 10px;
-                        border-radius: 4px;
-                        font-size: 12px;
-                        pointer-events: none;
-                        z-index: 1000;
-                        display: none;
-                    }
-                    .imageContainer {
-                        cursor: pointer;
-                        transition: transform 0.3s ease;
-                    }
-                </style>
+                <link rel="stylesheet" href="/pages/arin/assets/fonts/fonts.css">
             </head>
             <body>
-                <div class="tooltip">Click to cut</div>
                 <div class="middleWindow">
                     <div class="imageContainer">
                         <img src="${content.image}" alt="${content.title}" id="windowImage">
@@ -204,25 +223,16 @@ function openMiddleWindow(contentIndex, leftPos) {
                     </div>
                 </div>
                 <script>
-                    const tooltip = document.querySelector('.tooltip');
                     const windowImage = document.getElementById('windowImage');
                     let isOriginalImage = true;
 
-                    document.addEventListener('mousemove', (e) => {
-                        tooltip.style.display = 'block';
-                        tooltip.style.left = (e.clientX + 10) + 'px';
-                        tooltip.style.top = (e.clientY + 10) + 'px';
-                    });
-
-                    document.addEventListener('mouseleave', () => {
-                        tooltip.style.display = 'none';
-                    });
-
-                    windowImage.addEventListener('click', () => {
-                        if (isOriginalImage) {
-                            windowImage.src = '${content.altImage}';
-                        }
-                    });
+                    if (windowImage) {
+                        windowImage.addEventListener('click', () => {
+                            if (isOriginalImage) {
+                                windowImage.src = '${content.altImage}';
+                            }
+                        });
+                    }
                 </script>
             </body>
             </html>

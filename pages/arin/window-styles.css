@@ -1,10 +1,16 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Jeju Myeongjo', serif;
     background-color: #F3353C;
     color: yellow;
     font-size: 5em;
+} */
+
+body {
+    font-family: 'Jeju Myeongjo', serif;
+    background: url('/pages/arin/assets/banner_bg.png') repeat;
+    background-size: auto;
 }
 
 @font-face {
@@ -27,6 +33,13 @@ body {
     font-size: 0.3em;
 }
 
+
+.banner-img {
+    display: block;
+    height: auto;
+    z-index: -1;
+}
+
 .windowBody {
 position: relative;
 width: 100%;
@@ -41,10 +54,14 @@ margin: 0;
 line-height: 1.5;
 text-align: center;
 font-family: 'chinese-script';
+font-size: 7rem;
+/* color: #fdff6f; */
 } 
 
 small {
-font-size: 0.5em;
+margin-top: 2rem;
+font-size: 0.9rem;
+/* color: white; */
 }
 
 

@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="arin/styles.css" />
     <script src="arin/script.js"></script>
   </head>
+
+  <svg>
+      <filter id="roughpaper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" numOctaves="5" />
+      <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2">
+        <feDistantLight azimuth="45" elevation="60" />
+      </feDiffuseLighting>
+    </filter>
+  </svg>
+
   <body>
-    <div class="blur_container">
+    <div class="blur_container hide">
       <div class="blur_8"></div>
       <div class="blur_7"></div>
       <div class="blur_6"></div>
@@ -29,13 +39,17 @@
 
     <div id="paperContainer">
       <div id="centerPaper">
-        <p class="centerPaperText">
-          新年快乐<br><br>
-        The act of crafting is seen as a way to honor ancestors, express hopes for the future, and bring families together through shared activities.<br><br>
-        手工艺被视为一种缅怀祖先、表达对未来希望，以及通过共同活动将家庭成员聚集在一起的方式。
+        <!-- <p class="centerPaperText chn"> -->
+          <p class="centerPaperText">
+          Couplets are red banners written with auspicious poetic lines in black or gold ink, expressing wishes for prosperity, happiness, harmony, health, and are meant to welcome spring and drive away bad luck.
+          <br><br>
         </p>
+        <img src="/pages/arin/assets/doors.png" alt="春联" class="doorsImg">
       </div> 
     </div>
+
+
+    <!-- etc. code -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // Add fade overlay to the page
@@ -48,8 +62,6 @@
         setTimeout(() => {
           document.body.classList.add("fade-in");
         }, 10);
-
-        
 
         // Handle link clicks for fade out effect
         document.querySelectorAll("a").forEach((link) => {

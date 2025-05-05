@@ -2,39 +2,56 @@ body {
     background-color: rgb(32, 0, 0);
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    color: yellow;
+    font-family: 'jeju-myeongjo', serif;
+    /* color: rgb(255, 255, 35); */
+    color: white;
     background-color: black;
 }
 
+@font-face {
+    font-family: 'chinese-script';
+    src: url('assets/bodang-xingkai.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'jeju-myeongjo';
+    src: url('assets/JejuMyeongjo-Regular.ttf') format('truetype');
+}
 #paperContainer {
     margin: 2% 25vw;
     aspect-ratio: 1;
-    /* width: 25vw;
-    height: 25vw; */
 }
 #centerPaper {
     height: 25vh;
-    width: 25vh;
-    background-color: #F3353C;
+    width: 70%;
     text-align: center;
-    padding: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
-    transform-origin: center;
-    transition: transform 1s ease;
-    rotate: 135deg;
 }
 
 .centerPaperText {
-    transform-origin: center;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     font-size: 1rem;
-    height: 100%;
-    rotate: 225deg;
 }
+
+.chn {
+    font-size: 3rem;
+    font-family: 'chinese-script', serif;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    display: none;
+  }
+
+  .hideOpacity {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .doorsImg {
+    width: 100%;
+  }
