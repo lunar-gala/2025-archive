@@ -74,7 +74,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
+      color: black;
       z-index: -1;
     }
 
@@ -104,18 +104,18 @@
 
   <div class="scroll-container">
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_1.png?v=1746238113008" alt="Part 1" />
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_1.png?v=1746635042235" alt="Part 1" />
       <div class="center-text-box"><p>Use horizontal scroll to navigate</p></div>
     </div>
     <div class="scroll-item">
     </div>
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_2.png?v=1746239477352" alt="Part 2" />
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_2.png?v=1746635015569" alt="Part 2" />
     </div>
     <div class="scroll-item">
     </div>
     <div class="scroll-item">
-      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_3.png?v=1746238119217" alt="Part 3" />
+      <img src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian_3.png?v=1746634986172" alt="Part 3" />
       <a class="center-text-box" href="../pages/all.html"><p>Enter</p></a>
     </div>
   </div>
@@ -126,20 +126,6 @@
       const yearDisplay = document.querySelector(".year h1");
       const baseYear = 2023;
 
-      const colors = [
-        [43, 43, 57],         // Slide 1: Black
-        [214, 221, 146],     // Slide 2: Dark Blue
-        [146, 28, 83]      // Slide 3: Pinkish Red
-      ];
-
-      function interpolateColor(c1, c2, t) {
-        return c1.map((c, i) => Math.round(c + t * (c2[i] - c)));
-      }
-
-      function toRGBString(rgb) {
-        return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-      }
-
       function updateVisuals() {
         const scrollLeft = scrollContainer.scrollLeft;
         const containerWidth = scrollContainer.offsetWidth;
@@ -147,14 +133,10 @@
 
         const index = scrollLeft / (containerWidth * 2);
 
-        // Interpolate color
-        const i0 = Math.floor(index);
-        const i1 = Math.min(Math.ceil(index), colors.length - 1);
-        const t = index - i0;
-        const blended = interpolateColor(colors[i0], colors[i1], t);
-        document.body.style.backgroundColor = toRGBString(blended);
+        document.body.style.backgroundColor = `rgb(255, 255, 255)`;
 
         // Update year
+        yearDisplay.style.opacity = Math.abs(index - Math.round(index));
         yearDisplay.textContent = baseYear + Math.round(index);
 
         // Image fade logic
