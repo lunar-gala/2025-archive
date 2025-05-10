@@ -1,27 +1,25 @@
 # How to Update
-## 1. Edit the Appropriate `.html` File
-- Locate the `.html` file that corresponds to the page you want to update.
+## 1. Edit the `pages/home.html` File
 - Open it in a code editor (e.g., VS Code, Sublime Text).
 
-## 2. Add a New Image Entry
-Inside the `<div class="grid">`, insert a new `<img>` tag with the appropriate format:
+## 2. Add a New Image Entry 
+Inside the `<div class="container">`, insert a new `<img>` or `<video>` tag with the appropriate format:
 
-### **With External Link:**
+### **For Images:**
 ```html
-<img src="the path to image goes here–we recommend using a CDN for large files"
-        alt="Name of Asset"
-        data-info="Name of Asset|Artist|Department|Medium|Year|<u><a target = '_blank' href='link to external link' target='_blank'>🖇️</a></u>"
-        onclick="openLightbox(this)"
+<img loading = "lazy"
+        src="link to image, we recommend using a CDN for large files"
+        data-desc="asset name; artist name; department"
       />
 ```
 
-### **Without External Link:**
+### **For Videos:**
 ```html
-<img src="the path to image goes here–we recommend using a CDN for large files"
-        alt="Name of Asset"
-        data-info="Name of Asset|Artist|Department|Medium|Year|"
-        onclick="openLightbox(this)"
-      />
+<video preload = "none" 
+        src="link to .mp4 video, we recommend using a CDN for large files" 
+        data-desc="asset name; artist name; department"
+        muted autoplay loop>
+      </video>
 ```
 
 - The **JavaScript** will handle interactions and display automatically.
