@@ -42,7 +42,6 @@ p {
   padding: 50px;
 }
 
-
 /* Fade-in effect */
 body.fade-in {
   opacity: 1;
@@ -121,6 +120,15 @@ a:hover{
   z-index: 1000;
 }
 
+.two-col-desc {
+  padding: 25px 50px 0px 50px;
+  background: white;
+  position: sticky;
+  top: 0px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -133,7 +141,7 @@ a:hover{
   transform: translateY(0);
 }
 
-h1 {
+h1, h2 {
   font-family: 'JejuMyeongjo', serif;
   font-weight: 300; 
   letter-spacing: -0.05em;
@@ -142,9 +150,17 @@ h1 {
   line-height: 0.5;
 }
 
+h2 {
+  font-size: 72px;
+}
+
 body {
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
+}
+
+.container {
+  padding: 0px 50px 0px 50px;
 }
 
 @media (max-width: 768px) {
@@ -152,7 +168,16 @@ body {
     display: block;
   }
 
-  .wrapper {
-    display: none;
+  .header, .two-col-desc, .container {
+    padding: 10px
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 18px;
   }
 }
