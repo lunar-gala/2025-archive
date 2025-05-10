@@ -3,7 +3,7 @@
 - Open it in a code editor (e.g., VS Code, Sublime Text).
 
 ## 2. Add a New Image Entry 
-Inside the `<div class="container">`, insert a new `<img>` or `video` tag with the appropriate format:
+Inside the `<div class="container">`, insert a new `<img>` or `<video>` tag with the appropriate format:
 
 ### **For Images:**
 ```html
