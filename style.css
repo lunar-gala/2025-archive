@@ -166,7 +166,7 @@ body {
 
 
 .container {
-  padding: 0px 50px 0px 50px;
+  padding: 0px 50px 100px 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 36px;
