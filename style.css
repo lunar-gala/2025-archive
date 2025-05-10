@@ -43,6 +43,8 @@ p {
 }
 
 .header {
+  position: fixed;
+  top: 0;
   padding: 50px;
 }
 
@@ -62,6 +64,7 @@ body.fade-out {
   top: 55vh;
   z-index: 999;
   padding: 0px 50px 0px 0px ;
+  background: white;
 }
 
 .thumbnail img {
@@ -76,6 +79,10 @@ body.fade-out {
 #info:hover .info,
 #page-thumbnail:hover .thumbnail {
   display: block;
+}
+
+#page-thumbnail p {
+  text-align: center;
 }
 
 #info-hover{
@@ -116,7 +123,7 @@ a:hover{
 }
 
 .landing-nav {
-  padding: 15vh 50px 0px 50px;
+  padding: 75vh 50px 0px 50px;
   box-sizing: border-box;
   display: grid;
   text-align: left;
@@ -164,9 +171,25 @@ body {
   transition: opacity 0.8s ease-in-out;
 }
 
+.footer {
+  padding: 0px 50px 10px 50px;
+  text-align: right;
+}
+
+.footer p {
+  color: #b0b0b0;
+}
+
+.footer a,
+.footer a:visited,
+.footer a:active 
+.footer a:hover {
+  color: #b0b0b0;
+  text-decoration: underline;
+}
 
 .container {
-  padding: 0px 50px 100px 50px;
+  padding: 0px 50px 75px 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 36px;
