@@ -43,9 +43,8 @@ p {
 }
 
 .header {
-  position: fixed;
-  top: 0;
   padding: 50px;
+  background: white;
 }
 
 /* Fade-in effect */
