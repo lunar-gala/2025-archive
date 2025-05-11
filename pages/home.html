@@ -316,6 +316,94 @@
           });
         });
       });
+      
+        // Set up lazy loading for videos
+        const videoContainers = document.querySelectorAll("[data-video-container]");
+        const initialLoadCount = 4; // Number of videos to load immediately
+        
+        // 1. LOADING OBSERVER: Detect when to load video files
+        const loadObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const container = entry.target;
+              const video = container.querySelector("video");
+              loadVideo(video, container);
+              loadObserver.unobserve(container);
+            }
+          });
+        }, { rootMargin: "200px 0px" }); // Load videos 200px before they enter viewport
+        
+        // 2. PLAY/PAUSE OBSERVER: Control playback based on visibility
+        const playbackObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const video = entry.target;
+            
+            // Only manage videos that are already loaded
+            if (video.getAttribute("src")) {
+              if (entry.isIntersecting) {
+                // Play when in viewport
+                video.play().catch(e => console.log("Autoplay prevented:", e));
+              } else {
+                // Pause when out of viewport
+                video.pause();
+              }
+            }
+          });
+        }, { threshold: 0.2 }); // When at least 20% of the video is visible
+        
+        // Function to load a video
+        function loadVideo(video, container) {
+          const videoSrc = video.getAttribute("data-src");
+          if (videoSrc) {
+            video.setAttribute("src", videoSrc);
+            video.classList.add("fade-in");
+            
+            // When video is loaded
+            video.addEventListener("loadeddata", () => {
+              // Hide placeholder, show video
+              container.classList.remove("placeholder");
+              container.querySelector(".loading-indicator")?.remove();
+              
+              // Add to loaded class
+              video.classList.add("loaded");
+              
+              // Start observing for play/pause based on visibility
+              playbackObserver.observe(video);
+              
+              // Only play if video is currently visible
+              if (isElementInViewport(video)) {
+                video.play().catch(e => console.log("Autoplay prevented:", e));
+              }
+            });
+            
+            // Start loading
+            video.load();
+          }
+        }
+        
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+          const rect = el.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        }
+        
+        // Load first few videos immediately
+        for (let i = 0; i < Math.min(initialLoadCount, videoContainers.length); i++) {
+          const container = videoContainers[i];
+          const video = container.querySelector("video");
+          loadVideo(video, container);
+        }
+        
+        // Set up remaining videos for lazy loading
+        for (let i = initialLoadCount; i < videoContainers.length; i++) {
+          loadObserver.observe(videoContainers[i]);
+        }
+        
     </script>
   </body>
 </html>
