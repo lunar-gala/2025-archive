@@ -202,14 +202,6 @@ body {
   text-align: right;
 }
 
-.footer a,
-.footer a:visited,
-.footer a:active 
-.footer a:hover {
-  color: #b0b0b0;
-  text-decoration: underline;
-}
-
 .container {
   padding: 0px 50px 75px 50px;
   display: grid;
@@ -251,6 +243,14 @@ body {
 
   .footer p {
     font-size: 14px;
+  }
+
+  .footer a,
+  .footer a:visited,
+  .footer a:active 
+  .footer a:hover {
+    color: #b0b0b0;
+    text-decoration: underline;
   }
   
 }
