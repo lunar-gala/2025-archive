@@ -22,24 +22,25 @@
 
     <div class = "header">
       <h1>Welcome!</h1>
-      <p>Click on a name to enter.</p>
+      <h3 id="instruction">Click on a name to enter.</h3>
     </div>
     <div class="landing-nav">
       <div id="info">
-        <p id = "info-hover">Info</p>
+        <h3 id = "info-hover">Info</h3>
         <div class="info">
-          <p>
-            Considering the ephemeral nature of Lunar Gala and the permanence of the 
-            website, the 2025 web team decided to create an archive for this year’s 
-            show. From preliminary sketches to play-blasts, this page serves as a 
-            record of experiments, iterations, and processes across the creative 
-            teams.
-          </p>
+          <h4>
+            This is the landing page for the 2025 Lunar Gala [LG] Creative Archive.
+            The archive acts as an index for future generations of LG, preserving creative assets that didn't make it to the final show.
+            <br /><br />
+            Recognizing that Lunar New Year is celebrated across many cultures, 
+            we turned the landing page into an open call, 
+            inviting Pan-Asian creators to design their own versions and share their interpretations of the holiday — the essence of LG.
+          </h4>
         </div>
       </div>
       <div id = "page-thumbnail">
         <a href = "pages/erin.html">
-          <p>Erin Hsu</p>
+          <h3>Erin Hsu</h3>
         </a>
         <div class = "thumbnail">
           <img src = "https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/erin-thumbnail.png?v=1746883317902" alt = "Erin Hsu" />
@@ -48,7 +49,7 @@
 
       <div id = "page-thumbnail">
         <a href = "pages/emma.html">
-          <p>Emma Deng</p>
+          <h3>Emma Deng</h3>
         </a>
         <div class = "thumbnail">
           <img src = "https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/emma-thumbnail.png?v=1746883331795" alt = "Emma Deng" />
@@ -56,7 +57,7 @@
       </div>
       <div id = "page-thumbnail">
         <a href = "pages/gian.html">
-          <p>Gian Lee</p>
+          <h3>Gian Lee</h3>
         </a>
         <div class = "thumbnail">
           <img src = "https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/gian-thumbnail.png?v=1746883344382" alt = "Gian Lee" />
@@ -64,7 +65,7 @@
       </div>
       <div id = "page-thumbnail">
         <a href = "pages/arin.html">
-          <p>Arin Pantja</p>
+          <h3>Arin Pantja</h3>
         </a>
         <div class = "thumbnail">
           <img src = "https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/thumbnail-arin.png?v=1746883377907" alt = "Arin Pantja" />
@@ -110,6 +111,23 @@
               }, 1000); // Match transition duration
             }
           });
+        });
+      });
+
+      // Add this to your existing script
+      document.addEventListener("DOMContentLoaded", () => {
+        // Your existing code...
+        
+        // Hide instruction text when hovering over info
+        const infoElement = document.getElementById("info");
+        const instructionElement = document.getElementById("instruction");
+        
+        infoElement.addEventListener("mouseenter", function() {
+          instructionElement.style.display = "none";
+        });
+        
+        infoElement.addEventListener("mouseleave", function() {
+          instructionElement.style.display = "block";
         });
       });
     </script>

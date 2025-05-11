@@ -39,9 +39,17 @@ p, .mobile-desc {
   font-style: normal;
   margin-top: 0px;
   letter-spacing: -0.01em;
-  font-size: 18px;
+  font-size: 24px;
 }
 
+h4 {
+  font-family: "Bangla Sangam MN", sans-serif;
+  font-weight: 400; 
+  font-style: normal;
+  margin-top: 0px;
+  letter-spacing: -0.01em;
+  font-size: 20px;
+}
 .header {
   padding: 50px;
   background: white;
@@ -57,13 +65,24 @@ body.fade-out {
   opacity: 0;
 }
 
-.info, .thumbnail{
+.thumbnail{
   display: none;
   position: absolute;
-  top: 55vh;
+  top: 54vh;
   z-index: 999;
   padding: 0px 50px 0px 0px ;
   background: white;
+}
+
+.info {
+  display: none;
+  position: absolute;
+  top: 54vh;
+  z-index: 999;
+  padding: 0px 50px 0px 0px;
+  background: white;
+  width: 800px;
+  height: auto;
 }
 
 .thumbnail img {
@@ -71,7 +90,7 @@ body.fade-out {
   height: auto;
 }
 
-#info p:hover {
+#info h3:hover {
   color: black;
 }
 
@@ -80,7 +99,7 @@ body.fade-out {
   display: block;
 }
 
-#page-thumbnail p {
+#page-thumbnail h3 {
   text-align: center;
 }
 
@@ -90,13 +109,12 @@ body.fade-out {
 
 
 h3 {
-  color: #b0b0b0; 
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Bangla Sangam MN", sans-serif;
   font-weight: 400; 
   font-style: normal;
-  letter-spacing: -0.01em;
   margin-top: 0px;
-  font-size: 10px;
+  letter-spacing: -0.01em;
+  font-size: 30px;
 }
 
 a, 
