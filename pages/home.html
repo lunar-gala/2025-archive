@@ -71,10 +71,9 @@
       />
 
       <img loading = "lazy"
-        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/self%20love%20chieri%20nnadozie.jpg?v=1746900659874"
-        data-desc="Self Love–Chieri Nnadozie–Photo"
+      src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/avarice%20lauren%20cho.jpg?v=1746900074209"
+      data-desc="Avarice–Lauren Cho–Photo"
       />
-
 
       <video preload = "none" 
         src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/Follow_Me_Through_It_All.mp4?v=1746898098137" 
@@ -93,6 +92,10 @@
         data-desc="Ka–Lauren Cho–Photo"
       />
 
+      <img loading = "lazy"
+      src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/pado%20annie%20zhang.JPG?v=1746900334587"
+      data-desc="Pado–Annie Zhang–Photo"
+    />
 
       <video preload = "none" 
         src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/KA.mp4?v=1746897670611" 
@@ -122,11 +125,6 @@
         data-desc="Soulstylz–Motion"
         muted autoplay loop>
       </video>
-
-      <img loading = "lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/pado%20annie%20zhang.JPG?v=1746900334587"
-        data-desc="Pado–Annie Zhang–Photo"
-      />
 
       <video preload = "none" 
         src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/Balance%20-%20Karis%20Choe.mp4?v=1746897151213" 
@@ -161,6 +159,11 @@
         data-desc="Immensity–Yiwen Jiang–Photo"
       />
 
+      <img loading = "lazy"
+      src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/reverie%20chieri%20nnadozie.jpg?v=1746899999746"
+      data-desc="Reverie–Chieri Nnadozie–Photo"
+     />
+
       <video preload = "none" 
         src="https://cdn.glitch.me/18bcd403-d69a-48ad-be8b-1e721ec4617f/elysium_sketch_1.mp4?v=1745560180566" 
         data-desc="Site Backdrop–Suanna Zhong–Web"
@@ -172,11 +175,6 @@
         data-desc="Final Flood–Motion"
         muted autoplay loop>
       </video>
-
-      <img loading = "lazy"
-      src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/reverie%20chieri%20nnadozie.jpg?v=1746899999746"
-      data-desc="Reverie–Chieri Nnadozie–Photo"
-     />
 
       <video preload = "none" 
         src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/recupera%20se%20-%20Deeptika%20Mandha.mp4?v=1746896442412" 
@@ -214,16 +212,14 @@
       </video>
 
       <img loading = "lazy"
-        src="https://cdn.glitch.me/04c02ba6-aba5-4646-90d8-da994f6a30b3/avarice%20lauren%20cho.jpg?v=1746900074209"
-        data-desc="Avarice–Lauren Cho–Photo"
-      />
-
-      <img loading = "lazy"
         src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/follow%20me%20through%20it%20all%20annie%20zhang.JPG?v=1746900121323"
         data-desc="Follow Me Through It All–Annie Zhang–Photo"
       />
 
-
+      <img loading = "lazy"
+        src="https://cdn.glitch.global/04c02ba6-aba5-4646-90d8-da994f6a30b3/self%20love%20chieri%20nnadozie.jpg?v=1746900659874"
+        data-desc="Self Love–Chieri Nnadozie–Photo"
+      />
     </div>
 
     <div class = "footer">
@@ -321,48 +317,43 @@
         });
       });
 
-// Add preconnect for CDN domains to speed up connection establishment
-function addPreconnects() {
-    const domains = ['cdn.glitch.global', 'cdn.glitch.me'];
-    domains.forEach(domain => {
-      const link = document.createElement('link');
-      link.rel = 'preconnect';
-      link.href = `https://${domain}`;
-      document.head.appendChild(link);
-    });
-  }
-  addPreconnects();
+      // Add preconnect for CDN domains to speed up connection establishment
+      function addPreconnects() {
+          const domains = ['cdn.glitch.global', 'cdn.glitch.me'];
+          domains.forEach(domain => {
+            const link = document.createElement('link');
+            link.rel = 'preconnect';
+            link.href = `https://${domain}`;
+            document.head.appendChild(link);
+          });
+        }
+        addPreconnects();
 
-  // IMAGE OPTIMIZATION
-  const images = document.querySelectorAll(".container img");
-  
-  // Process images - load first 4 immediately, lazy load the rest
-  images.forEach((img, index) => {
-    // Add fade-in class to all images
-    img.classList.add("fade-in");
-    
-    // Setup load event for fade-in effect
-    if (img.complete) {
-      img.classList.add("loaded");
-    } else {
-      img.addEventListener("load", () => {
-        img.classList.add("loaded");
-      });
-    }
-    
-    // For images beyond the first 4
-    if (index >= 4) {
-      // Store the original source but let native lazy loading handle it
-      // This keeps the existing HTML intact but still improves performance
-      if (!img.classList.contains("loading-monitored")) {
-        img.classList.add("loading-monitored");
-      }
-    }
-  });
-  
-        // Set up lazy loading for videos
+        // IMAGE OPTIMIZATION
+        const images = document.querySelectorAll(".container img");
+        
+        // Process images - load first 4 immediately, lazy load the rest
+        images.forEach((img, index) => {
+          img.classList.add("fade-in");
+        
+          if (img.complete) {
+            img.classList.add("loaded");
+          } else {
+            img.addEventListener("load", () => {
+              img.classList.add("loaded");
+            });
+          }
+        
+          if (index >= 4) {
+            if (!img.classList.contains("loading-monitored")) {
+              img.classList.add("loading-monitored");
+            }
+          }
+        });
+        
+        // VIDEO OPTIMIZATION
         const videoContainers = document.querySelectorAll("[data-video-container]");
-        const initialLoadCount = 2; // Number of videos to load immediately
+        const initialLoadCount = 2; 
         
         // 1. LOADING OBSERVER: Detect when to load video files
         const loadObserver = new IntersectionObserver((entries) => {
@@ -374,57 +365,43 @@ function addPreconnects() {
               loadObserver.unobserve(container);
             }
           });
-        }, { rootMargin: "200px 0px" }); // Load videos 200px before they enter viewport
+        }, { rootMargin: "200px 0px" });
         
         // 2. PLAY/PAUSE OBSERVER: Control playback based on visibility
         const playbackObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             const video = entry.target;
             
-            // Only manage videos that are already loaded
             if (video.getAttribute("src")) {
               if (entry.isIntersecting) {
-                // Play when in viewport
                 video.play().catch(e => console.log("Autoplay prevented:", e));
               } else {
-                // Pause when out of viewport
                 video.pause();
               }
             }
           });
-        }, { threshold: 0.2 }); // When at least 20% of the video is visible
+        }, { threshold: 0.2 }); 
         
-        // Function to load a video
         function loadVideo(video, container) {
           const videoSrc = video.getAttribute("data-src");
           if (videoSrc) {
             video.setAttribute("src", videoSrc);
             video.classList.add("fade-in");
-            
-            // When video is loaded
+          
             video.addEventListener("loadeddata", () => {
-              // Hide placeholder, show video
               container.classList.remove("placeholder");
               container.querySelector(".loading-indicator")?.remove();
               
-              // Add to loaded class
               video.classList.add("loaded");
-              
-              // Start observing for play/pause based on visibility
               playbackObserver.observe(video);
-              
-              // Only play if video is currently visible
               if (isElementInViewport(video)) {
                 video.play().catch(e => console.log("Autoplay prevented:", e));
               }
             });
-            
-            // Start loading
             video.load();
           }
         }
-        
-        // Helper function to check if element is in viewport
+
         function isElementInViewport(el) {
           const rect = el.getBoundingClientRect();
           return (
@@ -435,14 +412,12 @@ function addPreconnects() {
           );
         }
         
-        // Load first few videos immediately
         for (let i = 0; i < Math.min(initialLoadCount, videoContainers.length); i++) {
           const container = videoContainers[i];
           const video = container.querySelector("video");
           loadVideo(video, container);
         }
         
-        // Set up remaining videos for lazy loading
         for (let i = initialLoadCount; i < videoContainers.length; i++) {
           loadObserver.observe(videoContainers[i]);
         }
