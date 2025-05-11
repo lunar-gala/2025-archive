@@ -245,7 +245,7 @@ body {
     line-height: 1.2;
   }
 
-  p {
+  p, .mobile-desc {
     font-size: 18px;
   }
 
