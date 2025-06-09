@@ -31,6 +31,7 @@ body {
     align-items: center;
     z-index: 2;
     font-size: 0.3em;
+    padding-top: 1rem;
 }
 
 
@@ -79,6 +80,7 @@ font-size: 0.9rem;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding-bottom: 2rem;
 }
 
 .textContainer h2 {

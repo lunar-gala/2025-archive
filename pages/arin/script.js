@@ -245,11 +245,6 @@ function openMiddleWindow(contentIndex, leftPos, topPos) {
 // Expose openMiddleWindow to child windows
 window.openMiddleWindow = openMiddleWindow;
 
-// Spawn initial window (banner) on the right with 2s delay
-setTimeout(() => {
-    openWindowAtPosition(window.innerWidth - window.innerWidth*0.1);
-}, 2000);
-
 // Simple spawn tracking using localStorage
 const spawnTracker = {
     getCount: function() {
@@ -300,3 +295,60 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+function fadeInElement(el) {
+  if (!el) return;
+  el.classList.remove('fade');
+  el.classList.add('show');
+}
+
+function fadeOutElement(el) {
+  if (!el) return;
+  el.classList.remove('show');
+  el.classList.add('fade');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const enterLink = document.getElementById('enter-link');
+  if (enterLink) {
+    enterLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      const mainText = document.querySelector('.centerPaperText.mainText');
+      const introText = document.querySelector('.centerPaperText:not(.mainText)');
+      if (mainText) fadeInElement(mainText);
+      if (introText) introText.classList.add('hide');
+      
+    });
+  }
+
+  const enterButton = document.querySelector('.centerPaperText.button');
+  if (enterButton) {
+    enterButton.addEventListener('click', function(event) {
+      const introText = document.getElementById('introText');
+      const doorsImg = document.querySelector('.doorsImg');
+
+      fadeOutElement(introText);
+      fadeOutElement(enterButton);
+
+      setTimeout(() => {
+        if (introText) {
+          introText.innerHTML = 'Couplets are red banners written with auspicious poetic lines in black or gold ink, expressing wishes for prosperity, happiness, harmony, health, and are meant to welcome spring and drive away bad luck.';
+          fadeInElement(introText);
+          fadeInElement(doorsImg);
+
+        }
+      }, 600); 
+
+
+      let testWin = window.open('', '', 'width=1,height=1,left=0,top=0');
+      if (testWin) {
+        testWin.close();
+        setTimeout(() => {
+          openWindowAtPosition(window.innerWidth - window.innerWidth*0.1);
+        }, 200);
+      } else {
+        alert('Please enable pop-ups for this site to continue.');
+      }
+    });
+  }
+});
