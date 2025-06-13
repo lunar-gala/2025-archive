@@ -35,6 +35,7 @@ body {
     justify-content: center;
     width: 100%;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .chn {
@@ -64,4 +65,19 @@ body {
 
   .doorsImg {
     width: 100%;
+  }
+
+  a p{
+    color: rgb(17, 19, 1) !important;
+    text-decoration: none !important;
+    font-family: 'jeju-myeongjo' !important;
+    font-size: 1.5rem !important;
+    color: black;
+    text-decoration: none;
+    font-family: 'jeju-myeongjo', serif !important;
+    font-size: 40rem;
+  }
+
+  a:hover p{
+    color: rgb(248, 255, 218) !important;
   }

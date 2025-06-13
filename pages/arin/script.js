@@ -119,10 +119,8 @@ function openWindowAtPosition(rightPos) {
                 
                 const doorsImg = document.querySelector('.doorsImg');
                 if (doorsImg) {
-                    // Change to door2.png
                     doorsImg.src = '/pages/arin/assets/door2.png';
                     
-                    // After 1.5 seconds, hide the door and start the transition
                     setTimeout(() => {
                         doorsImg.classList.add('hide');
                         
@@ -139,11 +137,21 @@ function openWindowAtPosition(rightPos) {
                         bgContainer.style.height = '100%';
                         bgContainer.style.backgroundImage = "url('/pages/arin/assets/background_paper.png')";
                         bgContainer.style.backgroundSize = 'auto';
-                        bgContainer.style.backgroundRepeat = 'repeat';
+                        // bgContainer.style.backgroundRepeat = 'repeat';
                         bgContainer.style.backgroundPosition = 'center';
                         bgContainer.style.opacity = '0';
                         bgContainer.style.transition = 'opacity 3s ease-in-out';
                         document.body.appendChild(bgContainer);
+
+                        const centerTextBox = document.createElement('div');
+                        centerTextBox.className = 'center-text-box';
+                        centerTextBox.innerHTML = '<a href="../pages/home.html"><p>[ Enter ]</p></a>';
+                        centerTextBox.style.position = 'absolute';
+                        centerTextBox.style.top = '50%';
+                        centerTextBox.style.left = '50%';
+                        centerTextBox.style.transform = 'translate(-50%, -50%)';
+                        bgContainer.appendChild(centerTextBox);
+
 
                         // Start fade in after a short delay
                         setTimeout(() => {
@@ -222,6 +230,7 @@ function openMiddleWindow(contentIndex, leftPos, topPos) {
                     <div class="textContainer">
                         <p>${content.text}</p>
                     </div>
+
                 </div>
                 <script>
                     const windowImage = document.getElementById('windowImage');
