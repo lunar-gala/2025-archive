@@ -1,8 +1,12 @@
-@font-face {
-  font-family: 'JejuMyeongjo';
-  src: url('https://s3.us-east-2.amazonaws.com/archive.lunargala.org/images/landing/JejuMyeongjoOTF.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+@import url("https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css");
+
+h1, h2 {
+  font-family: 'Jeju Myeongjo', serif;
+  font-weight: 300; 
+  letter-spacing: -0.05em;
+  text-align: left;
+  font-size: 200px;
+  line-height: 0.5;
 }
 
 @font-face {
@@ -168,15 +172,6 @@ a:hover{
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-h1, h2 {
-  font-family: 'JejuMyeongjo', serif;
-  font-weight: 300; 
-  letter-spacing: -0.05em;
-  text-align: left;
-  font-size: 200px;
-  line-height: 0.5;
 }
 
 h2 {
